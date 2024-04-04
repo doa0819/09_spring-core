@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="member" class="com.ohgiraffers.common.MemberDTO">   <!--class="com.ohgiraffers.common.MemberDTO" 안에 있는 객체를 만든다 뜻-->
+        <constructor-arg index="0" value="1"/>   <!--MemberDto 에서 설정한 0번째 인덱스 회원이름-->
+        <constructor-arg name="id" value="user01"/>
+        <constructor-arg index="2"><value>pass01</value></constructor-arg>
+        <constructor-arg name="name"><value>이도아</value></constructor-arg>
+        <!--constructor-arg 접근 방법 1. index / 2. 해당 이름 사용-->
+
+    </bean>
+</beans>

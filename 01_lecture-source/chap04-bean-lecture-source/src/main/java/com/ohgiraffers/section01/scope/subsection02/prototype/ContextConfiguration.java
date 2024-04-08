@@ -32,6 +32,12 @@ public class ContextConfiguration {
     /* 필기.
     *   prototype : getBean() 시에 매번 새로운 인스턴스를 생성하게 해준다.
     * */
+
+    /* singleton - prototype
+     *   singleton : hashcode 같음 (하나의 인스턴트에 모든 빈이 들어가 있다.)
+     *   prototype : hashcode 다름 (매번 새로운 인스턴트 생성 - 객체생성에 대한 부담감이 줄어든다.)
+     * */
+
     @Bean
     @Scope("prototype")
     public ShoppingCart cart(){

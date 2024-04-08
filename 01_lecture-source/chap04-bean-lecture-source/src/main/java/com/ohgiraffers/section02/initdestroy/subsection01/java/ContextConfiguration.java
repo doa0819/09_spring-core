@@ -1,4 +1,4 @@
-package com.ohgiraffers.section01.scope.subsection01.singleton;
+package com.ohgiraffers.section02.initdestroy.subsection01.java;
 
 import com.ohgiraffers.common.Beverage;
 import com.ohgiraffers.common.Bread;
@@ -29,20 +29,25 @@ public class ContextConfiguration {
     }
 
 
-    /*  필기.
-         singleton: 기본적인 스코프는 싱글톤!!
-     *              하나의 인스턴스만을 생성을 하고, 모든 빈이 해당 인스턴스를 공유한다.
-     * */
-
-    /* singleton - prototype
-    *   singleton : hashcode 같음 (하나의 인스턴트에 모든 빈이 들어가 있다.)
-    *   prototype : hashcode 다름 (매번 새로운 인스턴트 생성 - 객체생성에 대한 부담감이 줄어든다.)
+    /* 필기.
+    *   prototype : getBean() 시에 매번 새로운 인스턴스를 생성하게 해준다.
     * */
 
+    /* singleton - prototype
+     *   singleton : hashcode 같음 (하나의 인스턴트에 모든 빈이 들어가 있다.)
+     *   prototype : hashcode 다름 (매번 새로운 인스턴트 생성 - 객체생성에 대한 부담감이 줄어든다.)
+     * */
+
     @Bean
-    @Scope("singleton")
+    @Scope("prototype")
     public ShoppingCart cart(){
         return new ShoppingCart();
+    }
+
+    @Bean(initMethod = "openShop", destroyMethod = "closeShop")
+    public Owner owner(){
+
+        return new Owner();
     }
 
 }
